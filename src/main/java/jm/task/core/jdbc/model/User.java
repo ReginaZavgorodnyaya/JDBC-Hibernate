@@ -15,6 +15,16 @@ public class User {
     @Column
     private String lastName;
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", id=" + id +
+                '}';
+    }
+
     @Column
     private Byte age;
 
