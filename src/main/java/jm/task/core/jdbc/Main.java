@@ -2,16 +2,12 @@ package jm.task.core.jdbc;
 
 
 //Создание таблицы User(ов)
-//
 //Добавление 4 User(ов) в таблицу с данными на свой выбор. После каждого добавления должен быть вывод в консоль ( User с именем – name добавлен в базу данных )
-//
 //Получение всех User из базы и вывод в консоль ( должен быть переопределен toString в классе User)
-//
 //Очистка таблицы User(ов)
-//
 //Удаление таблицы
 
-import com.sun.xml.bind.v2.TODO;
+
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
@@ -32,7 +28,7 @@ public class Main {
         List<User> userList = userService.getAllUsers();
         userList.forEach(System.out::println);
 
-        userService.cleanUsersTable();
-        userService.dropUsersTable();
+//        userService.cleanUsersTable();
+//        userService.dropUsersTable();
     }
 }
