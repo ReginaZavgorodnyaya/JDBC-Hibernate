@@ -1,9 +1,9 @@
 package jm.task.core.jdbc.dao;
 
-import jakarta.persistence.criteria.CriteriaQuery;
+
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
-import org.hibernate.HibernateException;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -32,14 +32,9 @@ public class UserDaoHibernateImpl implements UserDao {
                     "CREATE TABLE IF NOT EXISTS users(" +
                             "id BIGSERIAL PRIMARY KEY," +
                             "name VARCHAR(512)," +
-                            "lastname VARCHAR(512)," +
+                            "last_name VARCHAR(512)," +
                             "age SMALLINT)").executeUpdate();
             transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            throw new RuntimeException("Не удалось создать таблицу users", e);
         }
     }
 
@@ -53,11 +48,6 @@ public class UserDaoHibernateImpl implements UserDao {
             );
             query.executeUpdate();
             transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            throw new RuntimeException("Не удалось удалить таблицу users", e);
         }
 
     }

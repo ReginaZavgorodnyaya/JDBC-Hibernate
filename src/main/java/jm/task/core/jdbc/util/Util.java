@@ -78,11 +78,8 @@ public class Util {
                 .applySetting("hibernate.show_sql", properties.getProperty("hibernate.show_sql"))
                 .build();
         try {
-            MetadataSources sources = new MetadataSources(registry);
-            sources.addAnnotatedClass(User.class);
-
-            Metadata metadata = sources.getMetadataBuilder().build();
-
+            Metadata metadata = new MetadataSources(registry)
+            .addAnnotatedClass(User.class).buildMetadata();
             return metadata.getSessionFactoryBuilder().build();
         } catch (Exception e) {
             StandardServiceRegistryBuilder.destroy(registry);
